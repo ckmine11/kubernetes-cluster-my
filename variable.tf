@@ -18,11 +18,8 @@ variable "Memory" {}
 variable "VMDISK_SIZE" {}
 variable "vm_password" {}
 variable "Master1_VM_IP" {}
-variable "Master2_VM_IP" {}
 variable "Master1_Host_Name" {}
-variable "Master2_Host_Name" {}
 variable "Master1_VM_NAME" {}
-variable "Master2_VM_NAME" {}
 variable "Worker0_VM_IP" {}
 variable "Worker1_VM_IP" {}
 variable "Worker0_Host_Name" {}
