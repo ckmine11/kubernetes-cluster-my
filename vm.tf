@@ -148,15 +148,7 @@ resource "vsphere_virtual_machine" "Master1" {
       host     = var.Master0_VM_IP
     }
   }
-  provisioner "remote-exec" {
-    script = "scripts/kubeadm.sh"
-    connection {
-      type     = "ssh"
-      user     = "root"
-      password = var.vm_password
-      host     = var.Master0_VM_IP
-    }
-  }
+ 
 }
 
 
