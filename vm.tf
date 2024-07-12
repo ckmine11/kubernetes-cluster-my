@@ -128,7 +128,7 @@ resource "vsphere_virtual_machine" "Master1" {
       host     = var.Master1_VM_IP
     }
   }
-}
+
 
   provisioner "remote-exec" {
     script = "scripts/kube.sh"
