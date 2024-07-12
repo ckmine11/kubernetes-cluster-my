@@ -2,7 +2,7 @@ MASTER0IP=192.168.5.50
 MASTER1IP=192.168.5.51
 MASTER0_HOSTNAME=master0
 MASTER1_HOSTNAME=master1
-VIP=192.168.5.50
+VIP=192.168.5.40
 INTERFACE_NAME=ens192
 
 cat <<EOF | sudo tee /etc/resolv.conf 
@@ -80,7 +80,7 @@ maxconn 3000
 # apiserver frontend which proxys to the masters
 #---------------------------------------------------------------------
 frontend apiserver
-bind *:6443
+bind *:8443
 mode tcp
 option tcplog
 default_backend apiserver
