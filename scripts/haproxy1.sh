@@ -1,9 +1,7 @@
 MASTER0IP=192.168.5.50
 MASTER1IP=192.168.5.51
-MASTER2IP=192.168.5.52
 MASTER0_HOSTNAME=master0
 MASTER1_HOSTNAME=master1
-MASTER2_HOSTNAME=master2
 VIP=192.168.5.50
 INTERFACE_NAME=ens192
 
@@ -29,10 +27,9 @@ state BACKUP
 advert_int 1
 virtual_router_id 51
 priority 101
-unicast_src_ip $MASTER1IP ## Master-1 IP Address
+unicast_src_ip $MASTER1IP ## Master-2 IP Address
 unicast_peer {
-$MASTER2IP ## Enter Master-02 IP Address
-$MASTER0IP ## Enter Master-03 IP Address
+$MASTER0IP ## Enter Master-01 IP Address
 }
 virtual_ipaddress {
 $VIP ## Enter Virtual IP address
@@ -99,7 +96,6 @@ option ssl-hello-chk
 balance roundrobin
 server $MASTER0_HOSTNAME $MASTER0IP:6443 check
 server $MASTER1_HOSTNAME $MASTER1IP:6443 check
-server $MASTER2_HOSTNAME $MASTER2IP:6443 check
 EOF
 
 systemctl restart haproxy && systemctl enable haproxy
